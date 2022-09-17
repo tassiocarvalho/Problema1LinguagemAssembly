@@ -20,18 +20,6 @@
         SVC 0
 .endm
 
-.macro GPIODirectionIn pin
-        LDR R2, =\pin
-        LDR R2, [R2]
-        LDR R1, [R8, R2]
-        LDR R3, =\pin @ address of pin table
-        ADD R3, #4 @ load amount to shift from table
-        LDR R3, [R3] @ load value of shift amt
-        MOV R0, #0b111 @ mask to clear 3 bits
-        LSL R0, R3 @ shift into position
-        BIC R1, R0 @ clear the three bits
-.endm
-
 .macro GPIODirectionOut pin
         LDR R2, =\pin
         LDR R2, [R2]
@@ -46,28 +34,6 @@
         LSL R0, R3 @ shift by amount from table
         ORR R1, R0 @ set the bit
         STR R1, [R8, R2] @ save it to reg to do work
-.endm
-
-.macro GPIOTurnOn pin, value
-        MOV R2, R8 @ address of gpio regs
-        ADD R2, #setregoffset @ off to set reg
-        MOV R0, #1 @ 1 bit to shift into pos
-        LDR R3, =\pin @ base of pin info table
-        ADD R3, #8 @ add offset for shift amt
-        LDR R3, [R3] @ load shift from table
-        LSL R0, R3 @ do the shift
-        STR R0, [R2] @ write to the register
-.endm
-
-.macro GPIOTurnOff pin, value
-        MOV R2, R8 @ address of gpio regs
-        ADD R2, #clrregoffset @ off set of clr reg
-        MOV R0, #1 @ 1 bit to shift into pos
-        LDR R3, =\pin @ base of pin info table
-        ADD R3, #8
-        LDR R3, [R3]
-        LSL R0, R3
-        STR R0, [R2]
 .endm
 
 .macro GPIOValue pin, value
@@ -106,6 +72,63 @@
         GPIOValue pin16d5, #\addb5
         GPIOValue pin12d4, #\addb4
         GPIOValue pinE, #0
+.endm
+
+.macro Init
+        setDisplay 0, 0, 0, 1, 1
+        nanoSleep timespecnano5
+
+        setDisplay 0, 0, 0, 1, 1
+        nanoSleep timespecnano150
+
+        setDisplay  0, 0, 0, 1, 1
+
+
+        setDisplay 0, 0, 0, 1, 0
+        nanoSleep timespecnano150
+
+        .ltorg
+
+        setDisplay 0, 0, 0, 1, 0
+
+        setDisplay 0, 0, 0, 0, 0
+        nanoSleep timespecnano150
+
+        setDisplay 0, 0, 0, 0, 0
+
+        setDisplay 0, 1, 0, 0, 0
+        nanoSleep timespecnano150
+
+        setDisplay 0, 0, 0, 0, 0
+
+        setDisplay 0, 0, 0, 0, 1
+        nanoSleep timespecnano150
+
+        setDisplay 0, 0, 0, 0, 0
+
+        setDisplay 0, 0, 1, 1, 0
+        nanoSleep timespecnano150
+
+        .ltorg
+.endm
+
+.macro DisplayOnOff
+
+        setDisplay 0, 0, 0, 0, 0
+        setDisplay 0, 1, 1, 1, 0
+        nanoSleep timespecnano150
+
+        setDisplay 0, 0, 0, 0, 0
+        setDisplay 0, 0, 1, 1, 0
+        nanoSleep timespecnano150
+        .ltorg
+.endm
+
+.macro ClearDisplay
+        setDisplay 0, 0, 0, 0, 0
+
+        setDisplay 0, 0, 0, 0, 1
+        nanoSleep timespecnano150
 .endm
 
 .macro Numero valor
@@ -196,7 +219,6 @@
         GPIODirectionOut pin20d6
         GPIODirectionOut pin16d5
         GPIODirectionOut pin12d4
-        b 1f
         .ltorg
 .endm
 
@@ -221,89 +243,54 @@ _start:
 
 
         setOut
-1:
-        setDisplay 0, 0, 0, 1, 1
-        nanoSleep timespecnano5
+        Init
+        DisplayOnOff
 
-        setDisplay 0, 0, 0, 1, 1
-        nanoSleep timespecnano150
-
-        setDisplay  0, 0, 0, 1, 1
-
-
-        setDisplay 0, 0, 0, 1, 0
-        nanoSleep timespecnano150
-        b 2f
-        .ltorg
-2:
-        setDisplay 0, 0, 0, 1, 0
-
-        setDisplay 0, 0, 0, 0, 0
-        nanoSleep timespecnano150
-
-        setDisplay 0, 0, 0, 0, 0
-
-        setDisplay 0, 1, 0, 0, 0
-        nanoSleep timespecnano150
-
-        setDisplay 0, 0, 0, 0, 0
-
-        setDisplay 0, 0, 0, 0, 1
-        nanoSleep timespecnano150
-
-        setDisplay 0, 0, 0, 0, 0
-
-        setDisplay 0, 0, 1, 1, 0
-        nanoSleep timespecnano150
-
-        b 3f
-        .ltorg
-3:
-
-        setDisplay 0, 0, 0, 0, 0
-        setDisplay 0, 1, 1, 1, 0
-        nanoSleep timespecnano150
-
-        setDisplay 0, 0, 0, 0, 0
-        setDisplay 0, 0, 1, 1, 0
-        nanoSleep timespecnano150
-
-        MOV R4, #7
-
+        MOV R4, #9
+        MOV R5, #9
 check:
-GPIOReadRegister pin26
+        GPIOReadRegister pin26
         CMP R0, R3
         BNE verificar
         B check
+
+check2:
+        GPIOReadRegister pin26
+        CMP R0, R3
+        BNE verificar
+        B check3
 
 verificar:
         LDR R9, [R8, #level]
         MOV R11, R9
         LDR R9, [R8, #level]
         CMP R9, R11
-        BEQ verificar
-
+        BNE verificar
 contador:
         MOV R12, #0xfffffff
 
-        setDisplay 0, 0, 0, 0, 0
-
-        setDisplay 0, 0, 0, 0, 1
-        nanoSleep timespecnano150
+        ClearDisplay
 
         setDisplay 1, 0, 0, 1, 1
         Numero R4
+        Numero R5
         SUB r4, #1
         CMP r4, #0
-        BNE delay
-        B end
+        BGE delay
+        nanoSleep timespecnano1s
+        B _start
 delay:
         SUB r12, #1
         CMP r12, #0
         BNE delay
+check3:
+        GPIOReadRegister pin26
+        CMP R0, R3
+        BNE check3
+        GPIOReadRegister pin19
+        CMP R0, R3
+        BNE _start
         B contador
-
-
 end:
         MOV R7, #1
         SVC 0
@@ -313,6 +300,7 @@ timespecsec: .word 0
 timespecnano20: .word 20000000
 timespecnano5: .word 5000000
 timespecnano150: .word 150000
+timespecnano1s: .word 99999999
 fileName: .asciz "/dev/mem"
 gpioaddr: .word 0x20200
 pin6:   .word 0
@@ -320,7 +308,7 @@ pin6:   .word 0
         .word 6
 pin26:  .word 8
         .word 18
-        .word 26
+        .word 67108864
 pinE:   .word 0
         .word 3
         .word 1
@@ -339,6 +327,6 @@ pin20d6:.word 8
 pin21d7:  .word 8
         .word 3
         .word 21
-time1ms:
-        .word 0
-        .word 030000000
+pin19:  .word 4
+        .word 27
+        .word 524288
