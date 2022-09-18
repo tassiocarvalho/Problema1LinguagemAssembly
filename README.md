@@ -15,7 +15,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center">Requisitos</h1> 
 • Tempo inicial configurado diretamente do código ✅  
-• Botão de iniciar/pausar✅  
+• Botão de iniciar/pausar✅
 
 <h1 align="center"> Sumário </h1> 
 
