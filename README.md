@@ -9,4 +9,16 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 * <a href="https://github.com/tassiocarvalho">Tassio Carvalho</a>
 
 <h1 align="center"> Sumário </h1>  
-* [Requisitos](#Requisitos)
+<!--ts-->
+   * [Sobre](#Sobre)
+   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Instalação](#instalacao)
+   * [Como usar](#como-usar)
+      * [Pre Requisitos](#pre-requisitos)
+      * [Local files](#local-files)
+      * [Remote files](#remote-files)
+      * [Multiple files](#multiple-files)
+      * [Combo](#combo)
+   * [Tests](#testes)
+   * [Tecnologias](#tecnologias)
+<!--te-->
