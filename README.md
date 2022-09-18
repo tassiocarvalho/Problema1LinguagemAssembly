@@ -15,4 +15,4 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • <a href="#tecnologias">Tecnologias</a>  
 • <a href="#contribuicao">Contribuição</a>  
 • <a href="#licenc-a">Licença</a>  
-•  <a href="#autor">Autor</a>  
+•  <a href="#Autores">Autores</a>  
