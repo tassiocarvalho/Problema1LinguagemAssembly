@@ -17,7 +17,6 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • Tempo inicial configurado diretamente do código ✅  
 
 • Botão de iniciar/pausar✅  
-
 • Botão de reiniciar o Timer✅  
 
 <h1 align="center"> Sumário </h1> 
