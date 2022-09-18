@@ -10,7 +10,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1>  
 
-• <a href="#objetivo">Objetivo</a>  
+• <a href="#Objetivo">Objetivo</a>  
 • <a href="#roadmap">Roadmap</a>  
 • <a href="#tecnologias">Tecnologias</a>  
 • <a href="#contribuicao">Contribuição</a>  
@@ -26,4 +26,4 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1> 
 
-<h1 align="center">objetivo</h1>
+<h1 align="center">Objetivo</h1>
