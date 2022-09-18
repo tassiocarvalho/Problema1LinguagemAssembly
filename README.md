@@ -4,5 +4,4 @@ onde terá que apresentar a contagem num display LCD. O tempo deve ser configura
 deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e outro para reiniciar a partir do tempo definido.
   
 <h1 align="center"> Autores </h1> 
-[Alana Sampaio](https://github.com/AlanaSampaio)
-[Tassio Carvalho](https://github.com/tassiocarvalho)
+[Alana Sampaio](google.com)
