@@ -9,4 +9,4 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 * <a href="https://github.com/tassiocarvalho">Tassio Carvalho</a>
 
 <h1 align="center"> Sumário </h1>  
-* ```Requisitos```
+* [Requisitos](#Requisitos)
