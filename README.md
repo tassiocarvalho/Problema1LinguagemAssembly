@@ -18,6 +18,9 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 • Botão de iniciar/pausar✅  
 • Botão de reiniciar o Timer✅  
+• O código deve ser escrito em Assembly.✅  
+• O sistema deve permitir configurar o tempo de contagem;✅
+       Observações: valor limite de 99
 
 <h1 align="center"> Sumário </h1> 
 
