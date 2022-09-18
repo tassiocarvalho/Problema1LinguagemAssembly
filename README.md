@@ -6,14 +6,16 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1>  
 
-• <a href="#Objetivo">Objetivo</a>  
+• <a href="#Requisitos">Objetivo</a>  
 • <a href="#roadmap">Roadmap</a>  
 • <a href="#tecnologias">Tecnologias</a>  
 • <a href="#contribuicao">Contribuição</a>  
 • <a href="#licenc-a">Licença</a>  
 • <a href="#Autores">Autores</a>  
 
-<h1 align="center"> Sumário </h1> 
+<h1 align="center">Requisitos</h1> 
+• Tempo inicial configurado diretamente do código ✅  
+• Botão de iniciar/pausar✅  
 
 <h1 align="center"> Sumário </h1> 
 
