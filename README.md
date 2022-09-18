@@ -6,7 +6,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1>  
 
-• <a href="#Requisitos">Objetivo</a>  
+• <a href="#Requisitos">Requisitos</a>  
 • <a href="#roadmap">Roadmap</a>  
 • <a href="#tecnologias">Tecnologias</a>  
 • <a href="#contribuicao">Contribuição</a>  
@@ -15,7 +15,10 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center">Requisitos</h1> 
 • Tempo inicial configurado diretamente do código ✅  
-• Botão de iniciar/pausar✅
+
+• Botão de iniciar/pausar✅  
+
+• Botão de reiniciar o Timer✅  
 
 <h1 align="center"> Sumário </h1> 
 
