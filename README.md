@@ -2,3 +2,7 @@
 Para o problema 1 de Sistemas Digitais, foi solicitado o desenvolvimento de um aplicativo de temporização (timer) 
 onde terá que apresentar a contagem num display LCD. O tempo deve ser configurado diretamente no código e além disso
 deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e outro para reiniciar a partir do tempo definido.
+  
+<h1 align="center"> Autores </h1> 
+[Alana Sampaio](https://github.com/AlanaSampaio)
+[Tassio Carvalho](https://github.com/tassiocarvalho)
