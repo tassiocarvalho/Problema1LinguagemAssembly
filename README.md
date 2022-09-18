@@ -11,10 +11,8 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 <h1 align="center"> Sumário </h1>  
 
 • <a href="#objetivo">Objetivo</a>  
-
 • <a href="#roadmap">Roadmap</a>  
-
-• <a href="#tecnologias">Tecnologias</a>
-• <a href="#contribuicao">Contribuição</a>
-• <a href="#licenc-a">Licença</a> 
-•  <a href="#autor">Autor</a>
+• <a href="#tecnologias">Tecnologias</a>  
+• <a href="#contribuicao">Contribuição</a>  
+• <a href="#licenc-a">Licença</a>  
+•  <a href="#autor">Autor</a>  
