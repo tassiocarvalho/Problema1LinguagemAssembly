@@ -26,4 +26,4 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1> 
 
-<a href= "objetivo"><h1 align="center"> Sumário </h1></a> 
+<h1 align="center">objetivo</h1>
