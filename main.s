@@ -84,7 +84,7 @@
         AND R0, R2, R3  @ Filtrando os outros bits => 00 000 000 000 000 000 000 000 000 100 000
         @CMP R0, R3     @Compara r0 com r3, para saber se o pino esta ativo
         @BEQ _ligado    @Se R0 == r3, o pino está ativo
-        @BNE _desligado @
+        @BNE _desligado @Se R0 != R3, o pino não esta ativo
 .endm
 
 @----Macro que define os valores dos pinos do LCD on=1 ou off=0----@
@@ -282,7 +282,7 @@ _start:
 
         MOV R13, #4         @movendo o valor x no r13 que foi definido como registrador de decimal
         MOV R4, #9          @movendo o valor x no r4 que foi definido como registrador de unidade
-
+        @---------------Trecho que escreve no LCD Aperte o botão--------------@
         @----aviso ao ver por ex o digito MSB é -> 0.0.0.1 < -LSB-------------@ 
         ClearDisplay        @macro de limpar display
         setDisplay 1, 0, 1, 0, 0 @A    @define o db4=0; db5=0; db6=1; db7=0; rs=1
@@ -361,9 +361,9 @@ contador:
         BGE delay
         SUB R13, #1
         MOV R4, #9
-	ORR R14, R13, R4
-	CMP R14, #0
-	B _start
+        AND R14, R13, R4
+        CMP R14, #9
+        BEQ _start
         nanoSleep1s timenano
         B contador
 delay:
