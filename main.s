@@ -287,13 +287,13 @@ _start:
         ClearDisplay        @macro de limpar display
         setDisplay 1, 0, 1, 0, 0 @A    @define o db4=0; db5=0; db6=1; db7=0; rs=1
         Numero #1                      @Valor 0001 que representa o 'A' da tabela ascci do display em 4 bit na coluna 0100
-        EntryModeSet                   @chamada da macro de entry mode Set
+        EntryModeSet                   @chamada da macro de entry mode Set pula para outra linha
         setDisplay 1, 0, 1, 1, 1 @p    @define o db4=1; db5=1; db6=1; db7=0; rs=1
         Numero #0                      @Valor 0000 que representa o 'p' da tabela ascci do display em 4 bit na coluna 0111
         EntryModeSet                   
         setDisplay 1, 0, 1, 1, 0 @e    @define o db4=0; db5=1; db6=1; db7=0; rs=1
         Numero #5                      @Valor 0101 que representa o 'e' da tabela ascci do display em 4 bit na coluna 0110
-        EntryModeSet                   
+        EntryModeSet                   @chamada da macro de entry mode Set pula para outra linha para escrever
         setDisplay 1, 0, 1, 1, 1 @r    @define o db4=1; db5=1; db6=1; db7=0; rs=1
         Numero #2                      @Valor 0010 que representa o 'r' da tabela ascci do display em 4 bit na coluna 0111
         EntryModeSet                   
@@ -335,85 +335,85 @@ check:
         BNE verificar                  @Se os valores de r0 e r3 forem diferentes o loop pula para o "verificar"
         B check                        @se forem iguais permanecem sempre no loop até que seja pressionado
 
-@-----------BOTÃO DO PINO 26 QUE IRÁ REALIZAR A PAUSA DO CONTADOR-------@ 
+@-------BOTÃO DO PINO 26 QUE IRÁ REALIZAR A PAUSA DO CONTADOR DETECTA CLICK-----@ 
 check2:
-        GPIOReadRegister pin26
-        CMP R0, R3
-        BNE verificar
-        B check3
+        GPIOReadRegister pin26   @Detecta com mais precisão um click para o pause
+        CMP R0, R3               @Compara o valor de r0 com r3 onde está o endereço do pino
+        BNE verificar            @Se os valores de r0 e r3 forem diferentes o loop pula para o "verificar"
+        B check3                 @se forem iguais simplesmente pula para o check3 mantendo-se em contagem
 
 verificar:
-        LDR R9, [R8, #level]
-        MOV R11, R9
-        LDR R9, [R8, #level]
-        CMP R9, R11
-        BNE verificar
+        LDR R9, [R8, #level]     @carrega o valor lógico alto do botão dentro do r9
+        MOV R11, R9              @valor de r9 no registrador no r11
+        LDR R9, [R8, #level]     @carrega novamente o valor lógico alto do botão dentro do r9
+        CMP R9, R11              @compara se r9 é igual r11
+        BNE verificar            @se forem diferente mantem-se no loop de verificar
 
 contador:
-        ClearDisplay
-        setDisplay 1, 0, 0, 1, 1
-        Numero R13
-        ClearDisplay
-        setDisplay 1, 0, 0, 1, 1
-        Numero R4
-        SUB r4, #1
-        CMP r4, #0
-        BGE delay
-        SUB R13, #1
-        MOV R4, #9
-        AND R14, R13, R4
-        CMP R14, #9
-        BEQ _start
-        nanoSleep1s timenano
-        B contador
+        ClearDisplay             @macro que realiza limpeza no display na casa decimal
+        setDisplay 1, 0, 0, 1, 1 @macro que ativa a coluna ascii do LCD dos numeros
+        Numero R13               @registrador que tem o valor decimal registrado logo acima do código
+        ClearDisplay             @macro que realiza limpeza no display na casa da unidade
+        setDisplay 1, 0, 0, 1, 1 @macro que ativa a coluna ascii do LCD dos numeros
+        Numero R4                @registrador que tem o valor decimal registrado logo acima do código
+        SUB r4, #1               @Subtrai a unidade por 1
+        CMP r4, #0               @Compara a unidade por se r4 >=0 pula para o delay se for menor pressegue para SUB r13 
+        BGE delay                @Pula ao delay caso o r4 seja >=0 
+        SUB R13, #1              @Se r4 < 0 ele subtrai 1 na casa decimal
+        MOV R4, #9               @adiciona 9 na casa unitária
+        AND R14, R13, R4         @Faz um and dentro do R14 o valor do r13 e r4 que sempre é 9
+        CMP R14, #9              @compara r14 se é = 9, na tabela do and 9 só é 9 quando faz and com 0 ou seja r13 tem que tá 0 para finalizar a contagem
+        BEQ _start               @Se realmente a condição de cima for igual ele finaliza a contagem 
+        nanoSleep1s timenano     @passa um nanoSleep de 1s
+        B contador               @retorna ao contador caso não entre em alguma branch acima
 delay:
-        nanoSleep1s timenano
+        nanoSleep1s timenano     @nanosleep de 1s para contagem de unidade
 check3:
-        GPIOReadRegister pin26
-        CMP R0, R3
-        BNE check3
-        GPIOReadRegister pin19
-        CMP R0, R3
-        BNE _start
-        B contador
+        GPIOReadRegister pin26   @detector de click para pausar dentro do loop
+        CMP R0, R3               @Compara o valor de r0 com r3 onde está o endereço do pino
+        BNE check3               @Se for diferente o contador pausa e a execução fica presa no loop até soltar o botão
+        GPIOReadRegister pin19   @Botão para dar um restart (ele detecta sempre se foi pressionado dentro do contador)
+        CMP R0, R3               @Compara o valor de r0 com r3 onde está o endereço do pino
+        BNE _start               @Se for diferente o código volta para a inicialização retornando a contagem
+        B contador               @caso não entre em nenhuma branch(condição acima) volta para o contador
 end:
         MOV R7, #1
         SVC 0
 
 .data
-second: .word 1
-timenano: .word 0000000000
-timespecsec: .word 0
-timespecnano20: .word 20000000
-timespecnano5: .word 5000000
-timespecnano150: .word 150000
-timespecnano1s: .word 999999999
+second: .word 1 @definindo 1 segundo no nanosleep
+timenano: .word 0000000000 @definindo o milisegundos para o segundo passar no nanosleep
+timespecsec: .word 0 @definição do nano sleep 0s permitindo os milissegundos
+timespecnano20: .word 20000000 @chamada de nanoSleep
+timespecnano5: .word 5000000 @valor em milisegundos para lcd
+timespecnano150: .word 150000 @valor em milisegundos para LCD
+timespecnano1s: .word 999999999 @valor para delay de contador
 fileName: .asciz "/dev/mem"
 gpioaddr: .word 0x20200             @ OFFSET BASE DOS GPIO
-pin6:   .word 0
+pin6:   .word 0                     @valores do pino do LED
         .word 18
         .word 6
-pin26:  .word 8
+pin26:  .word 8                     @word do pino do botão
         .word 18
-        .word 67108864              @ 2^26 resulta nesse valor, em conversão a binário o 1 se encontra na vigesima sexta casa dos 32 bits
-pinE:   .word 0
+        .word 67108864              @ 2^26 resulta nesse valor, em conversão a binário o 1 se encontra na vigesima sétima casa dos 32 bits
+pinE:   .word 0                     @words do pino do enable do LCD
         .word 3
         .word 1
-pin25rs:.word 8
+pin25rs:.word 8                     @words do pino rs do lcd
         .word 15
         .word 25
-pin12d4:  .word 4
+pin12d4:  .word 4                   @words do pino db4 do lcd
         .word 6
         .word 12
-pin16d5:  .word 4
+pin16d5:  .word 4                   @words do pino db5 do lcd
         .word 18
         .word 16
-pin20d6:.word 8
+pin20d6:.word 8                     @word do pino db6 do lcd
         .word 0
         .word 20
-pin21d7:  .word 8
+pin21d7:  .word 8                   @word do pino db6 do lcd
         .word 3
         .word 21
-pin19:  .word 4
+pin19:  .word 4                     @word do pino db6 do lcd
         .word 27
-        .word 524288
+        .word 524288                @2^19 resulta nesse valor, em conversão a binário o 1 se encontra na vigesima casa dos 32 bits
