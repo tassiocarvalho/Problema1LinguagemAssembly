@@ -16,6 +16,7 @@
 .equ nano_sleep, 162    @SYSCALL DO SISTEMA LINUX PARA REALIZAR UMA "PAUSA" NA EXECUÇAO DO PROGRAMA
 .equ level, 0x034       @VALOR DO PIN LEVEL DOS REGISTRADORES DE 0-31
 
+.include "move.s"
 .include "contador.s"
 .include "clear.s"
 .include "display.s"
@@ -56,48 +57,8 @@
         @---------------Trecho que escreve no LCD Aperte o botão--------------@
         @----aviso ao ver por ex o digito MSB é -> 0.0.0.1 < -LSB-------------@ 
         ClearDisplay        @macro de limpar display
-        setDisplay 1, 0, 1, 0, 0 @A    @define o db4=0; db5=0; db6=1; db7=0; rs=1
-        Numero #1                      @Valor 0001 que representa o 'A' da tabela ascci do display em 4 bit na coluna 0100
-        EntryModeSet                   @chamada da macro de entry mode Set pula para outra linha
-        setDisplay 1, 0, 1, 1, 1 @p    @define o db4=1; db5=1; db6=1; db7=0; rs=1
-        Numero #0                      @Valor 0000 que representa o 'p' da tabela ascci do display em 4 bit na coluna 0111
-        EntryModeSet                   
-        setDisplay 1, 0, 1, 1, 0 @e    @define o db4=0; db5=1; db6=1; db7=0; rs=1
-        Numero #5                      @Valor 0101 que representa o 'e' da tabela ascci do display em 4 bit na coluna 0110
-        EntryModeSet                   @chamada da macro de entry mode Set pula para outra linha para escrever
-        setDisplay 1, 0, 1, 1, 1 @r    @define o db4=1; db5=1; db6=1; db7=0; rs=1
-        Numero #2                      @Valor 0010 que representa o 'r' da tabela ascci do display em 4 bit na coluna 0111
-        EntryModeSet                   
-        setDisplay 1, 0, 1, 1, 1 @t    @define o db4=1; db5=1; db6=1; db7=0; rs=1
-        Numero #4                      @Valor 0100 que representa o 't' da tabela ascci do display em 4 bit na coluna 0111
-        EntryModeSet                   
-        setDisplay 1, 0, 1, 1, 0 @e    @define o db4=0; db5=1; db6=1; db7=0; rs=1 
-        Numero #5                      @Valor 0101 que representa o 'e' da tabela ascci do display em 4 bit na coluna 0110
-        EntryModeSet                   
-        setDisplay 1, 0, 0, 1, 0 @_    @define o db4=0; db5=1; db6=0; db7=0; rs=1 
-        Numero #0                      @Valor 0000 que representa o ' ' da tabela ascci do display em 4 bit na coluna 0010
-        EntryModeSet                   
-        setDisplay 1, 0, 1, 1, 0 @o    @define o db4=0; db5=1; db6=1; db7=0; rs=1 
-        Numero #15                     @Valor 1111 que representa o 'o' da tabela ascci do display em 4 bit na coluna 0110
-        EntryModeSet                   
-        setDisplay 1, 0, 0, 1, 0 @_    @define o db4=0; db5=1; db6=0; db7=0; rs=1 
-        Numero #0                      @Valor 0000 que representa o ' ' da tabela ascci do display em 4 bit na coluna 0010
-        EntryModeSet                   
-        setDisplay 1, 0, 1, 1, 0 @b    @define o db4=0; db5=1; db6=1; db7=0; rs=1 
-        Numero #2                      @Valor 0010 que representa o ' ' da tabela ascci do display em 4 bit na coluna 0110
-        EntryModeSet
-        setDisplay 1, 0, 1, 1, 0 @o    @define o db4=0; db5=1; db6=1; db7=0; rs=1
-        Numero #15                     @Valor 1111 que representa o 'o' da tabela ascci do display em 4 bit na coluna 0110
-        EntryModeSet
-        setDisplay 1, 0, 1, 1, 1 @t    @define o db4=1; db5=1; db6=1; db7=0; rs=1
-        Numero #4                      @Valor 0100 que representa o 't' da tabela ascci do display em 4 bit na coluna 0111
-        EntryModeSet
-        setDisplay 1, 1, 1, 1, 0 @ã    @define o db4=0; db5=1; db6=1; db7=1; rs=1
-        Numero #1                      @Valor 0001 que representa o 'ä' da tabela ascci do display em 4 bit na coluna 1110
-        EntryModeSet
-        setDisplay 1, 0, 1, 1, 0 @o    @define o db4=0; db5=1; db6=1; db7=0; rs=1  
-        Numero #15                     @Valor 1111 que representa o 'o' da tabela ascci do display em 4 bit na coluna 0110
-        .ltorg
+        
+        aperte
 
         contador @chama a macro do arquivo "contador.s"
 end:
