@@ -10,7 +10,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • <a href="#Detalhamento dos software usados no trabalho">Detalhamento dos software usados no trabalho</a> 
 • <a href="#Arquitetura do computador usado nos testes">Arquitetura do computador usado nos testes</a>  
 • <a href="#Instruções utilizadas">Instruções utilizadas</a>  
-• <a href="#roadmap">Roadmap</a>  
+• <a href="#Instalação, configuração de ambiente e execução">Instalação, configuração de ambiente e execução</a>  
 • <a href="#contribuicao">Contribuição</a>  
 • <a href="#licenc-a">Licença</a>  
 • <a href="#Autores">Autores</a>  
@@ -27,8 +27,11 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 <h1 align="center"> Detalhamento dos software usados no trabalho </h1> 
 
 • Raspberry Pi Zero: Módulo responsável pelo sistema operacional em que o problema deve ser feito e testado.
+
 • Incluso no brotoboard além do Rapsberry também usamos: Display LCD: HD44780U (LCD-II); Botão tipo push-button
+
 • Visual Studio Code: Software utilizado para melhor visualização do código e alterações do mesmo.
+
 • QEMU: Software disposto para manipular o código em conjunto com o terminal do Windows para debugar o código.
 
 
@@ -65,27 +68,105 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 .asciz = Define a memória para uma string ASCII e adiciona um terminador NULL.
 
 MOV = Copia o valor do operando fonte para o operando destino.
+
 MOVS = é usada para copiar um item de dados, podendo ser byte ou word, da string de origem para a string de destino.
+
 SVC = o modo do processador muda para Supervisor podendo, entre outras coisas, encerrar a chamada.
+
 STR = Armazena um valor de registro na memória.
+
 LDR = Carrega um valor de registro na memória.
+
 ADD = Soma o valor do operando destino com o valor do operando fonte, armazena o valor em um operador informado ou no próprio operador destino.
+
 MUL = Multiplica os operandos informados.
+
 SUB = Subtrai o valor do operando destino com o valor do operando fonte.
+
 LSL = Deslocamento lógico para a esquerda.
+
 LSR = Deslocamento lógico para a direita.
+
 BIC = Utilizado para limpar bits.
+
 AND = Faz uma operação "E" bit a bit nos operandos e armazena o resultado no operando destino.
+
 ORR = Faz uma operação "OU" bit a bit nos operandos e armazena o resultado no operando destino.
+
 CMP = Compara o valor dos dois operandos.
+
 BEQ = Condição para quando os operadores comparados forem iguais.
+
 BGE = Condição para quando um operador comparado for maior ou igual que o outro.
+
 BNE = Condição para quando os operadores comparados forem diferentes.
+
 B =  Faz com que uma ramificação seja .label ###
 
 
+<h1 align="center">Instalação, configuração de ambiente e execução </h1>
 
-<h1 align="center">Objetivo</h1>
+• Antes de tudo obtenha o Raspberry Pi Zero em mãos;
+
+• Para executar é necessário clonar o projeto na sua máquina usando o comando a seguir;
+
+```
+$ git clone https://github.com/tassiocarvalho/Problema1LinguagemAssembly.git
+```
+
+• Transfira os arquivos baixados no ponto dois para o Raspberry Pi Zero;
+
+• Execute os seguintes comandos: 
+
+```
+$ make
+```
+
+```
+$ sudo ./main
+```
+
+<h1 align="center"> Descrição dos testes de funcionamento do sistema </h1>
+
+Para a elaboração do sistema foi necessário a execução de sete testes sendo eles detalhados a seguir:
+
+<h3>Primeiro teste:</h3>
+
+• Com o intuito de testar o mapeamento de um componente do circuito a LED foi a escolhida, acompanhada de um código onde quando detectasse a pinagem a LED deveria responder acendendo.
+
+<h3>Segundo teste:</h3>
+
+• A partir desse momento o mapeamento dos botões foram os escolhidos além da diferenciação entre eles, sendo utilizado novamente a LED. O código corresponde um algoritmo que ao detecnar o nível lógico alto de um pino correspondente a um botão acendia a LED. Obtivemos primeiramente a resposta de apertar qualquer botão e obter a resposta da LED e a seguir conseguir diferenciar pelos pinos qual botão seria responsável pelo feito de ter uma resposta da LED.
+
+<h3>Terceiro teste:</h3>
+
+• Ainda sobre o mapeamento chegou a vez do LCD. O terceiro teste teve a inteção de exibir a letra "H" no display, sendo exibido em seguida ocaracter "#" e também números.
+
+<h3>Quarto teste:</h3>
+
+• O quarto teste se deu pela exibição no LCD de um código em assembly com o objetivo de contar em ordem descrescente de 9 a 0, usando até então somente uma casa unitária, sendo assim, o número exibido era apagado e o próximo aparecia no mesmo lugar, sem percorrer o cursor pelo display.
+
+<h3>Quinto teste:</h3>
+
+• A seguir, as funcionalidades a serem testadas integravam os botões e o temporizador. Os botões neste teste possuiam a funcionalidade de iniciar, pausar e reiniciar o temporizador sendo um botão encarregado de iniciar e pausar e o outro de reiniciar. O responsável por pausar e iniciar ocorreu como esperado precisando pressionar o botão para o contador pausar e ao ser solto iniciar a contage novamente. O segundo botão reinicia o sistema aparecendo a mensagem inicial do sistema "Aperte o botão".
+
+<h3>Sexto teste:</h3>
+
+• Ademais, o sexto teste se deu referente a inserção de mais digitos no LCD saindo de casa unitária para decimal.
+
+<h3>Sétimo teste:</h3>
+
+• Por fim, o sétimo e último teste possuia o proposito de aumentar os dígitos visíveis no LCD, saindo de decimal para centena. e somente neste teste o código não funcionou pois não foi possível encerraro o contador ao chegar 000 e não demos prosseguimento.
+
+<h1 align="center"> Considerações finais</h1>
+
+Apesar do sistema cumprir os requisitos do tempo inicial ser configurado diretamente no código, botão de iniciar/pausar, botão de reiniciar o temporizador, o código deve ser escrito em Assembly e o sistema deve permitir configurar o tempo de contagem, o mesmo possui suas limitações como:
+
+O LCD não foi usado em sua capaciade máxima. 
+
+O botão pausar precisa ser pressionado para o sistema pausar a contagem, sendo o ideal ser clicado e não pressionado.
+
+Contudo obtivemos o seguinte resultado:
 
 <h1 align="center">Autores</h1>  
 
