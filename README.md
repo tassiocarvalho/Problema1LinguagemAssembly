@@ -16,8 +16,8 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • <a href="#Autores">Autores</a>  
 
 <h1 align="center">Requisitos</h1> 
-• Tempo inicial configurado diretamente do código ✅  
 
+• Tempo inicial configurado diretamente do código ✅  
 • Botão de iniciar/pausar✅  
 • Botão de reiniciar o Timer✅  
 • O código deve ser escrito em Assembly.✅  
@@ -34,20 +34,21 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Arquitetura do computador usado nos testes </h1>
 
-Características da Raspberry PI Zero W utilizada:
+<h3> Características da Raspberry PI Zero W utilizada: </h3>  
 
 • Chip Broadcom BCM2835, com processador ARM1176JZF-S 1GHz single core;
 • O processador conta com arquitetura ARMv6.
 • 512MB de memória LPDDR2 SDRAM;
 
-Periféricos:
+<h3> Periféricos: </h3>
 
 • Display LCD: HD44780U (LCD-II);
 • Botão tipo push-button.
 
+
 <h1 align="center"> Instruções utilizadas </h1> 
 
-.equ = atribui valores absolutos ou realocáveis ​​aos símbolos
+.equ = atribui valores absolutos ou realocáveis aos símbolos
 
 .global = Torna um símbolo global, necessário para ser referência de outros arquivos pois informa onde a execução do programa começa.
 
@@ -63,32 +64,25 @@ Periféricos:
 
 .asciz = Define a memória para uma string ASCII e adiciona um terminador NULL.
 
-
 MOV = Copia o valor do operando fonte para o operando destino.
-
 MOVS = é usada para copiar um item de dados, podendo ser byte ou word, da string de origem para a string de destino.
 SVC = o modo do processador muda para Supervisor podendo, entre outras coisas, encerrar a chamada.
 STR = Armazena um valor de registro na memória.
 LDR = Carrega um valor de registro na memória.
-
 ADD = Soma o valor do operando destino com o valor do operando fonte, armazena o valor em um operador informado ou no próprio operador destino.
 MUL = Multiplica os operandos informados.
 SUB = Subtrai o valor do operando destino com o valor do operando fonte.
-
 LSL = Deslocamento lógico para a esquerda.
 LSR = Deslocamento lógico para a direita.
-
 BIC = Utilizado para limpar bits.
-
 AND = Faz uma operação "E" bit a bit nos operandos e armazena o resultado no operando destino.
 ORR = Faz uma operação "OU" bit a bit nos operandos e armazena o resultado no operando destino.
-
 CMP = Compara o valor dos dois operandos.
-
 BEQ = Condição para quando os operadores comparados forem iguais.
 BGE = Condição para quando um operador comparado for maior ou igual que o outro.
 BNE = Condição para quando os operadores comparados forem diferentes.
 B =  Faz com que uma ramificação seja .label ###
+
 
 
 <h1 align="center">Objetivo</h1>
