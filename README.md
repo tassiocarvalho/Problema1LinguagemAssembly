@@ -179,11 +179,11 @@ Apesar do sistema cumprir os
 <a href="#Requisitos">requisitos</a>
 , o mesmo possui suas limitações como:
 
-• O LCD não foi usado em sua capaciade máxima. 
+• O LCD não foi usado em sua capacidade máxima. 
 
 • O botão pausar precisa ser pressionado para o sistema pausar a contagem, sendo o ideal ser clicado e não pressionado.
 
-Contudo, entregamos um temporizador obtendo os requisitos mínimos solicitados, em assembly e o display separado como biblioteca.
+Contudo, entregamos um temporizador obtendo os requisitos mínimos solicitados em assembly e o display separado como biblioteca.
 
 
 <h1 id="Material-utilizado" align="center">Material utilizado </h1>  
