@@ -8,7 +8,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 • <a href="#Requisitos">Requisitos</a> 
 
-• <a href="#Detalhamento-dos-software-usados-no-trabalho">Detalhamento dos software usados no trabalho</a>
+• <a href="#Detalhamento dos software usados no trabalho">Detalhamento dos software usados no trabalho</a>
 
 • <a href="#Arquitetura-do-computador-usado-nos-testes">Arquitetura do computador usado nos testes</a>  
 
