@@ -157,6 +157,7 @@
         .ltorg  @Programas grandes podem exigir vários pools literais. Coloque as diretivas LTORG após ramificações incondicionais ou instruções de retorno de sub-rotina para que o processador não tente executar as constantes como instruções.
 .endm
 
+@---------Macro que gera a palavra "Aperte o botäo" no LCD-----------@
 .macro aperte
         setDisplay 1, 0, 1, 0, 0 @A    @define o db4=0; db5=0; db6=1; db7=0; rs=1
         Numero #1                      @Valor 0001 que representa o 'A' da tabela ascci do display em 4 bit na coluna 0100

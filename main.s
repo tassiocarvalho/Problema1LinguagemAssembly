@@ -16,6 +16,7 @@
 .equ nano_sleep, 162    @SYSCALL DO SISTEMA LINUX PARA REALIZAR UMA "PAUSA" NA EXECUÇAO DO PROGRAMA
 .equ level, 0x034       @VALOR DO PIN LEVEL DOS REGISTRADORES DE 0-31
 
+@------chamada das bibliotecas------@
 .include "move.s"
 .include "contador.s"
 .include "clear.s"
@@ -45,7 +46,7 @@
 
 @------------INICIANDO O MAPEAMENTO DA MEMÓRIA NO START---------------@
         
-        mapeamento
+        mapeamento                  @Chama macro de mapeamento encontra-se no gpiomap.s
 
 
         setOut                      @Chama a macro de saida dos pinos
