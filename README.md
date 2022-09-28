@@ -6,7 +6,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1>  
 
-• [Requisitos]("#Requisitos")  
+• [Requisitos]("#-Requisitos")  
 
 • [Detalhamento dos software usados no trabalho]("#Detalhamento-dos-software-usados-no-trabalho")
 
