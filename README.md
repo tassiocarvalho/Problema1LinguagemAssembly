@@ -18,7 +18,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 • <a href="#Considerações-finais">Considerações finais</a>  
 
-• <a href="#Material-utilizado">Material utilizado</a>  
+• <a href="#Material_utilizado">Material utilizado</a>  
 
 • <a href="#Autores">Autores</a>  
 
