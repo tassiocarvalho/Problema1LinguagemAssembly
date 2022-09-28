@@ -6,13 +6,20 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1>  
 
-• <a href="#Requisitos">Requisitos</a>  
-• <a href="#Detalhamento dos software usados no trabalho">Detalhamento dos software usados no trabalho</a> 
-• <a href="#Arquitetura do computador usado nos testes">Arquitetura do computador usado nos testes</a>  
+• [Requisitos]("#Requisitos")  
+
+• [Detalhamento dos software usados no trabalho]("#Detalhamento-dos-software-usados-no-trabalho")
+
+• <a href="#Arquitetura-do-computador-usado-nos-testes">Arquitetura do computador usado nos testes</a>  
+
 • <a href="#Instruções utilizadas">Instruções utilizadas</a>  
+
 • <a href="#Instalação, configuração de ambiente e execução">Instalação, configuração de ambiente e execução</a>  
-• <a href="#contribuicao">Contribuição</a>  
-• <a href="#licenc-a">Licença</a>  
+
+• <a href="#Considerações finais">Considerações finais</a>  
+
+• <a href="#Material utilizado">Material utilizado</a>  
+
 • <a href="#Autores">Autores</a>  
 
 <h1 align="center">Requisitos</h1> 
@@ -51,6 +58,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Instruções utilizadas </h1> 
 
+```
 .equ = atribui valores absolutos ou realocáveis aos símbolos
 
 .global = Torna um símbolo global, necessário para ser referência de outros arquivos pois informa onde a execução do programa começa.
@@ -102,7 +110,7 @@ BGE = Condição para quando um operador comparado for maior ou igual que o outr
 BNE = Condição para quando os operadores comparados forem diferentes.
 
 B =  Faz com que uma ramificação seja .label ###
-
+```
 
 <h1 align="center">Instalação, configuração de ambiente e execução </h1>
 
@@ -126,7 +134,7 @@ $ make
 $ sudo ./main
 ```
 
-<h1 align="center"> Descrição dos testes de funcionamento do sistema </h1>
+<h1 align="center">Descrição dos testes de funcionamento do sistema </h1>
 
 Para a elaboração do sistema foi necessário a execução de sete testes sendo eles detalhados a seguir:
 
@@ -160,13 +168,27 @@ Para a elaboração do sistema foi necessário a execução de sete testes sendo
 
 <h1 align="center"> Considerações finais</h1>
 
-Apesar do sistema cumprir os requisitos do tempo inicial ser configurado diretamente no código, botão de iniciar/pausar, botão de reiniciar o temporizador, o código deve ser escrito em Assembly e o sistema deve permitir configurar o tempo de contagem, o mesmo possui suas limitações como:
+Apesar do sistema cumprir os 
+<a href="#Requisitos">requisitos</a>
+, o mesmo possui suas limitações como:
 
 O LCD não foi usado em sua capaciade máxima. 
 
 O botão pausar precisa ser pressionado para o sistema pausar a contagem, sendo o ideal ser clicado e não pressionado.
 
-Contudo obtivemos o seguinte resultado:
+Contudo, entregamos um temporizador obtendo os requisitos mínimos solicitados, em assembly e o display separado como biblioteca.
+
+<h1 align="center">Material utilizado </h1>  
+
+[Stephen Smith - Raspberry Pi Assembly Language Programming](https://link.springer.com/book/10.1007/978-1-4842-5287-1)
+
+[HD44780U (LCD-16x2)](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf)
+
+[BCM2835 ARM Peripherals](https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf)
+
+[ARM1176JZF-S Technical Reference Manual](https://developer.arm.com/documentation/ddi0301/h?lang=en)
+
+[Linux system Calls - ARM 32bit EABI](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#arm-32_bit_EABI)
 
 <h1 align="center">Autores</h1>  
 
