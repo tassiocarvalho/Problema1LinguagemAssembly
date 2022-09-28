@@ -183,7 +183,11 @@ Apesar do sistema cumprir os
 
 • O botão pausar precisa ser pressionado para o sistema pausar a contagem, sendo o ideal ser clicado e não pressionado.
 
-Contudo, entregamos um temporizador obtendo os requisitos mínimos solicitados em assembly e o display separado como biblioteca.
+Contudo, entregamos um temporizador obtendo os requisitos mínimos solicitados em assembly e o display separado como biblioteca. 
+
+Segue um link demonstrativo do código funcionando: 
+
+• [Vídeo demonstrativo](https://www.youtube.com/watch?v=xTtwCqUxBoU)
 
 
 <h1 id="Material-utilizado" align="center">Material utilizado </h1>  
