@@ -6,14 +6,24 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1>  
 
-• <a href="#Requisitos">Requisitos</a>  
-• <a href="#Detalhamento dos software usados no trabalho">Detalhamento dos software usados no trabalho</a> 
-• <a href="#Arquitetura do computador usado nos testes">Arquitetura do computador usado nos testes</a>  
-• <a href="#Instruções utilizadas">Instruções utilizadas</a>  
-• <a href="#Instalação, configuração de ambiente e execução">Instalação, configuração de ambiente e execução</a>  
-• <a href="#contribuicao">Contribuição</a>  
-• <a href="#licenc-a">Licença</a>  
+• <a href="#Requisitos">Requisitos</a> 
+
+• <a href="#Detalhamento-dos-software-usados">Detalhamento dos software usados no trabalho</a>
+
+• <a href="#Arquitetura-do-computador-usado-nos-testes">Arquitetura do computador usado nos testes</a>  
+
+• <a href="#Instruções-utilizadas">Instruções utilizadas</a>  
+
+• <a href="#Instalação-configuração-de-ambiente-e-execução">Instalação, configuração de ambiente e execução</a>  
+
+• <a href="#Descrição-dos-testes-de-funcionamento-do-sistema">Descrição dos testes de funcionamento do sistema</a>
+
+• <a href="#Considerações-finais">Considerações finais</a>  
+
+• <a href="#Material-utilizado">Material utilizado</a>  
+
 • <a href="#Autores">Autores</a>  
+
 
 <h1 align="center">Requisitos</h1> 
 
@@ -24,7 +34,8 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • O sistema deve permitir configurar o tempo de contagem;✅
        Observação: valor limite máximo de 99
 
-<h1 align="center"> Detalhamento dos software usados no trabalho </h1> 
+
+<h1 id="Detalhamento-dos-software-usados" align="center"> Detalhamento dos software usados no trabalho </h1> 
 
 • Raspberry Pi Zero: Módulo responsável pelo sistema operacional em que o problema deve ser feito e testado.
 
@@ -35,7 +46,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • QEMU: Software disposto para manipular o código em conjunto com o terminal do Windows para debugar o código.
 
 
-<h1 align="center"> Arquitetura do computador usado nos testes </h1>
+<h1 id="Arquitetura-do-computador-usado-nos-testes" align="center"> Arquitetura do computador usado nos testes </h1>
 
 <h3> Características da Raspberry PI Zero W utilizada: </h3>  
 
@@ -49,8 +60,9 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • Botão tipo push-button.
 
 
-<h1 align="center"> Instruções utilizadas </h1> 
+<h1 id="Instruções-utilizadas" align="center"> Instruções utilizadas </h1> 
 
+```
 .equ = atribui valores absolutos ou realocáveis aos símbolos
 
 .global = Torna um símbolo global, necessário para ser referência de outros arquivos pois informa onde a execução do programa começa.
@@ -101,10 +113,11 @@ BGE = Condição para quando um operador comparado for maior ou igual que o outr
 
 BNE = Condição para quando os operadores comparados forem diferentes.
 
-B =  Faz com que uma ramificação seja .label ###
+B =  Faz com que uma ramificação seja .label 
+```
 
 
-<h1 align="center">Instalação, configuração de ambiente e execução </h1>
+<h1 id="Instalação-configuração-de-ambiente-e-execução" align="center">Instalação, configuração de ambiente e execução </h1>
 
 • Antes de tudo obtenha o Raspberry Pi Zero em mãos;
 
@@ -126,7 +139,8 @@ $ make
 $ sudo ./main
 ```
 
-<h1 align="center"> Descrição dos testes de funcionamento do sistema </h1>
+
+<h1 id="Descrição-dos-testes-de-funcionamento-do-sistema" align="center">Descrição dos testes de funcionamento do sistema </h1>
 
 Para a elaboração do sistema foi necessário a execução de sete testes sendo eles detalhados a seguir:
 
@@ -158,15 +172,32 @@ Para a elaboração do sistema foi necessário a execução de sete testes sendo
 
 • Por fim, o sétimo e último teste possuia o proposito de aumentar os dígitos visíveis no LCD, saindo de decimal para centena. e somente neste teste o código não funcionou pois não foi possível encerraro o contador ao chegar 000 e não demos prosseguimento.
 
-<h1 align="center"> Considerações finais</h1>
 
-Apesar do sistema cumprir os requisitos do tempo inicial ser configurado diretamente no código, botão de iniciar/pausar, botão de reiniciar o temporizador, o código deve ser escrito em Assembly e o sistema deve permitir configurar o tempo de contagem, o mesmo possui suas limitações como:
+<h1 id="#Considerações-finais" align="center"> Considerações finais</h1>
 
-O LCD não foi usado em sua capaciade máxima. 
+Apesar do sistema cumprir os 
+<a href="#Requisitos">requisitos</a>
+, o mesmo possui suas limitações como:
 
-O botão pausar precisa ser pressionado para o sistema pausar a contagem, sendo o ideal ser clicado e não pressionado.
+• O LCD não foi usado em sua capacidade máxima. 
 
-Contudo obtivemos o seguinte resultado:
+• O botão pausar precisa ser pressionado para o sistema pausar a contagem, sendo o ideal ser clicado e não pressionado.
+
+Contudo, entregamos um temporizador obtendo os requisitos mínimos solicitados em assembly e o display separado como biblioteca.
+
+
+<h1 id="Material-utilizado" align="center">Material utilizado </h1>  
+
+[Stephen Smith - Raspberry Pi Assembly Language Programming](https://link.springer.com/book/10.1007/978-1-4842-5287-1)
+
+[HD44780U (LCD-16x2)](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf)
+
+[BCM2835 ARM Peripherals](https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf)
+
+[ARM1176JZF-S Technical Reference Manual](https://developer.arm.com/documentation/ddi0301/h?lang=en)
+
+[Linux system Calls - ARM 32bit EABI](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#arm-32_bit_EABI)
+
 
 <h1 align="center">Autores</h1>  
 
