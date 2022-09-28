@@ -24,6 +24,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 • <a href="#Autores">Autores</a>  
 
+
 <h1 align="center">Requisitos</h1> 
 
 • Tempo inicial configurado diretamente do código ✅  
@@ -32,6 +33,7 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 • O código deve ser escrito em Assembly.✅  
 • O sistema deve permitir configurar o tempo de contagem;✅
        Observação: valor limite máximo de 99
+
 
 <h1 id="Detalhamento-dos-software-usados" align="center"> Detalhamento dos software usados no trabalho </h1> 
 
@@ -114,6 +116,7 @@ BNE = Condição para quando os operadores comparados forem diferentes.
 B =  Faz com que uma ramificação seja .label 
 ```
 
+
 <h1 id="Instalação-configuração-de-ambiente-e-execução" align="center">Instalação, configuração de ambiente e execução </h1>
 
 • Antes de tudo obtenha o Raspberry Pi Zero em mãos;
@@ -135,6 +138,7 @@ $ make
 ```
 $ sudo ./main
 ```
+
 
 <h1 id="Descrição-dos-testes-de-funcionamento-do-sistema" align="center">Descrição dos testes de funcionamento do sistema </h1>
 
@@ -168,6 +172,7 @@ Para a elaboração do sistema foi necessário a execução de sete testes sendo
 
 • Por fim, o sétimo e último teste possuia o proposito de aumentar os dígitos visíveis no LCD, saindo de decimal para centena. e somente neste teste o código não funcionou pois não foi possível encerraro o contador ao chegar 000 e não demos prosseguimento.
 
+
 <h1 id="#Considerações-finais" align="center"> Considerações finais</h1>
 
 Apesar do sistema cumprir os 
@@ -180,12 +185,17 @@ Apesar do sistema cumprir os
 
 Contudo, entregamos um temporizador obtendo os requisitos mínimos solicitados, em assembly e o display separado como biblioteca.
 
+
 <h1 id="Material-utilizado" align="center">Material utilizado </h1>  
 
 [Stephen Smith - Raspberry Pi Assembly Language Programming](https://link.springer.com/book/10.1007/978-1-4842-5287-1)
+
 [HD44780U (LCD-16x2)](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf)
+
 [BCM2835 ARM Peripherals](https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf)
+
 [ARM1176JZF-S Technical Reference Manual](https://developer.arm.com/documentation/ddi0301/h?lang=en)
+
 [Linux system Calls - ARM 32bit EABI](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#arm-32_bit_EABI)
 
 
