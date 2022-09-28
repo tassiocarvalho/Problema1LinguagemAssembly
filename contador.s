@@ -32,8 +32,9 @@ contador:
         BGE delay                @Pula ao delay caso o r4 seja >=0 
         SUB R13, #1              @Se r4 < 0 ele subtrai 1 na casa decimal
         MOV R4, #9               @adiciona 9 na casa unitária
-        AND R6, R13, R4         @Faz um and dentro do R14 o valor do r13 e r4 que sempre é 9
-        CMP R6, #9              @compara r14 se é = 9, na tabela do and 9 só é 9 quando faz and com 0 ou seja r13 tem que tá 0 para finalizar a contagem
+        AND R6, R13, R4          @Faz um and dentro do R6 o valor do r13 e r4 que sempre é 9
+        CMP R6, #9               @compara r6 se é = 9, na tabela do and 9 só é 9 quando faz and com ele mesmo ou com 1111,
+                                 @como 0 - 1 = 0xfffffff ficando nos utimos 4 bits 1111                                                       
         BEQ _start               @Se realmente a condição de cima for igual ele finaliza a contagem 
         nanoSleep1s timenano     @passa um nanoSleep de 1s
         B contador               @retorna ao contador caso não entre em alguma branch acima
