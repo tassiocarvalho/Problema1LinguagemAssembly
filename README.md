@@ -6,19 +6,19 @@ deverão ser usados 2 botões de controle: 1 para iniciar/parar a contagem e out
 
 <h1 align="center"> Sumário </h1>  
 
-• [Requisitos]("#-Requisitos")  
+• <a href="#Requisitos">Requisitos</a> 
 
-• [Detalhamento dos software usados no trabalho]("#Detalhamento-dos-software-usados-no-trabalho")
+• <a href="#Detalhamento-dos-software-usados-no-trabalho">Detalhamento dos software usados no trabalho</a>
 
 • <a href="#Arquitetura-do-computador-usado-nos-testes">Arquitetura do computador usado nos testes</a>  
 
-• <a href="#Instruções utilizadas">Instruções utilizadas</a>  
+• <a href="#Instruções-utilizadas">Instruções utilizadas</a>  
 
-• <a href="#Instalação, configuração de ambiente e execução">Instalação, configuração de ambiente e execução</a>  
+• <a href="#Instalação-configuração-de-ambiente-e-execução">Instalação, configuração de ambiente e execução</a>  
 
-• <a href="#Considerações finais">Considerações finais</a>  
+• <a href="#Considerações-finais">Considerações finais</a>  
 
-• <a href="#Material utilizado">Material utilizado</a>  
+• <a href="#Material-utilizado">Material utilizado</a>  
 
 • <a href="#Autores">Autores</a>  
 
@@ -109,7 +109,7 @@ BGE = Condição para quando um operador comparado for maior ou igual que o outr
 
 BNE = Condição para quando os operadores comparados forem diferentes.
 
-B =  Faz com que uma ramificação seja .label ###
+B =  Faz com que uma ramificação seja .label 
 ```
 
 <h1 align="center">Instalação, configuração de ambiente e execução </h1>
